@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, Post, Lens, Correction, Tag
+from .models import CustomUser, Post, Lens, Correction, Tag
 
-admin.site.register(User, UserAdmin)
+admin.site.register(CustomUser, UserAdmin)
 
 admin.site.register(Post)
 admin.site.register(Lens)
