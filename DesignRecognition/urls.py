@@ -4,5 +4,5 @@ from .views import PostListView, LensListView
 
 urlpatterns = [
     path('posts/', PostListView.as_view(), name='posts-all'),
-    path('lens/', LensListView.as_view(), name='lens-ll'),
+    path('lens/', LensListView.as_view(), name='lens-all'),
 ]
