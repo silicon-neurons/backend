@@ -6,7 +6,7 @@ from .models import Post, Lens
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Post
-        fields = ('image', 'desc', 'design', 'geotag', 'timestamp', 'lens')
+        fields = ('image', 'desc', 'design', 'lens', 'latitude', 'longitude', 'timestamp')
 
 class LensSerializer(serializers.ModelSerializer):
     class Meta:

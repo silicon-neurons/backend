@@ -20,7 +20,9 @@ class Post(models.Model):
     design = models.CharField(max_length=1, choices=DESIGN_TYPES, null=False)
     user = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, blank=True, null=True)
     lens = models.ForeignKey('Lens', on_delete=models.SET_NULL, blank=True, null=True)
-    geotag = models.CharField(max_length=56) #! unsure
+    #* Default coordinates correspond to Tegucigalpa's Central Park
+    geo_latitude = models.FloatField('Latitude', default=14.1059453)
+    geo_longitude = models.FloatField('Longitude', default=-87.2049887)
     score = models.FloatField(default=1.0)
     timestamp = models.DateTimeField('Date Added', auto_now_add=True)
 
