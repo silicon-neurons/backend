@@ -5,6 +5,20 @@
 You should first create a new virtual environment. Activate this virtual environment and install the dependencies.
 
 ```cli
+# Install virtualenv
+pip install virtualenv
+
+# Create environment
+virtualenv venv
+
+# Activate environment
+source venv/bin/activate
+
+# On windows
+# ./venv/Scripts/activate
+```
+
+```cli
 pip install -r requirements.txt
 ```
 
