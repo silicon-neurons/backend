@@ -123,6 +123,7 @@ STATIC_URL = '/static/'
 
 # Custom settings
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'DesignRecognition.CustomUser'
