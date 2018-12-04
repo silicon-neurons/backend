@@ -40,6 +40,12 @@ python manage.py createsuperuser
 It will ask for some information, such as username, e-mail and password.
 After creating this user you should be able to log in to the admin interface at route `/admin`.
 
+To run postgresql:
+
+```cli
+pip install psycopg2-binary
+```
+
 ## TODO
 
 As the project goes on, the README will be updated.
