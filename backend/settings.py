@@ -26,7 +26,9 @@ SECRET_KEY = 'pj4!)n=nq1-=2e@lchx6v#(_wae7!bcar*$9!ov^h@^u_e@#au'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'designrecognitionbackend.herokuapp.com'
+    'designrecognitionbackend.herokuapp.com',
+    'localhost',
+    '127.0.0.1'
 ]
 
 
@@ -79,6 +81,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+#           ONLINE DB
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -90,6 +93,13 @@ DATABASES = {
     }
 }
 
+#       LOCAL HOST
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators

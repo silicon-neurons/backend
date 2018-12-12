@@ -27,7 +27,7 @@ class PostCreateView(generics.CreateAPIView):
             desc = request.data["desc"],
             design = request.data["design"],
             user = None, #! Change when auth is done
-            lens = Lens.objects.get(pk=request.data["lens"]),
+            lens = Lens.objects.get(title=request.data["lens"]),
             geo_latitude = request.data["geo_latitude"],
             geo_longitude = request.data["geo_longitude"]
         )
