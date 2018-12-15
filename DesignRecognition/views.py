@@ -13,6 +13,27 @@ class PostListView(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = SimplePostSerializer
 
+class LocationLimitedListView(generics.ListAPIView):
+    """
+    Provides a GET method for posts as pins within a bounding rectangle.
+    """
+    queryset = Post.objects.all()
+    serializer_class = SimplePostSerializer
+
+    def get(self, request, *args, **kwargs):
+        try:
+            x1,y1,x2,y2 = float(kwargs["x1"]),float(kwargs["y1"]),float(kwargs["x2"]),float(kwargs["y2"])
+            bounded_posts = self.queryset.filter(geo_latitude__gt=x1, geo_longitude__gt=y1, geo_latitude__lt=x2, geo_longitude__lt=y2)
+            return Response(SimplePostSerializer(bounded_posts, many=True).data)
+        except ValueError:
+            return Response(
+                data={
+                    "message": "URL parameters were not formatted as floats."
+                },
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
+
 class PostCreateView(generics.CreateAPIView):
     """
     Provides a POST method for creating new posts.
