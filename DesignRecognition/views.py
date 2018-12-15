@@ -13,7 +13,6 @@ class PostListView(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = SimplePostSerializer
 
-<<<<<<< HEAD
 class LocationLimitedListView(generics.ListAPIView):
     """
     Provides a GET method for posts as pins within a bounding rectangle.
@@ -34,9 +33,6 @@ class LocationLimitedListView(generics.ListAPIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-
-=======
->>>>>>> Postgres
 class PostCreateView(generics.CreateAPIView):
     """
     Provides a POST method for creating new posts.
