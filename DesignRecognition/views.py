@@ -13,6 +13,7 @@ class PostListView(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = SimplePostSerializer
 
+<<<<<<< HEAD
 class LocationLimitedListView(generics.ListAPIView):
     """
     Provides a GET method for posts as pins within a bounding rectangle.
@@ -34,6 +35,8 @@ class LocationLimitedListView(generics.ListAPIView):
             )
 
 
+=======
+>>>>>>> Postgres
 class PostCreateView(generics.CreateAPIView):
     """
     Provides a POST method for creating new posts.
@@ -48,7 +51,7 @@ class PostCreateView(generics.CreateAPIView):
             desc = request.data["desc"],
             design = request.data["design"],
             user = None, #! Change when auth is done
-            lens = Lens.objects.get(pk=request.data["lens"]),
+            lens = Lens.objects.get(title=request.data["lens"]),
             geo_latitude = request.data["geo_latitude"],
             geo_longitude = request.data["geo_longitude"]
         )

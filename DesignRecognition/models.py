@@ -21,8 +21,8 @@ class Post(models.Model):
     user = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, blank=True, null=True)
     lens = models.ForeignKey('Lens', on_delete=models.SET_NULL, blank=True, null=True)
     #* Default coordinates correspond to Tegucigalpa's Central Park
-    geo_latitude = models.FloatField('Latitude', default=14.1059453)
-    geo_longitude = models.FloatField('Longitude', default=-87.2049887)
+    geo_latitude = models.FloatField('Latitude', default=14.1059453, max_length=50)
+    geo_longitude = models.FloatField('Longitude', default=-87.2049887, max_length=50)
     score = models.FloatField(default=1.0)
     timestamp = models.DateTimeField('Date Added', auto_now_add=True)
 
