@@ -23,6 +23,10 @@ class LocationLimitedListView(generics.ListAPIView):
     def get(self, request, *args, **kwargs):
         try:
             x1,y1,x2,y2 = float(kwargs["x1"]),float(kwargs["y1"]),float(kwargs["x2"]),float(kwargs["y2"])
+            if x1 > x2:
+                x1, x2 = x2, x1
+            if y1 > y2:
+                y1, y2 = y2, y1
             bounded_posts = self.queryset.filter(geo_latitude__gt=x1, geo_longitude__gt=y1, geo_latitude__lt=x2, geo_longitude__lt=y2)
             return Response(SimplePostSerializer(bounded_posts, many=True).data)
         except ValueError:
