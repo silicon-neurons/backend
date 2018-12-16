@@ -19,7 +19,8 @@ class LocationLimitedListView(generics.ListAPIView):
     """
     queryset = Post.objects.all()
     serializer_class = SimplePostSerializer
-     def get(self, request, *args, **kwargs):
+    
+    def get(self, request, *args, **kwargs):
         try:
             x1,y1,x2,y2 = float(kwargs["x1"]),float(kwargs["y1"]),float(kwargs["x2"]),float(kwargs["y2"])
             bounded_posts = self.queryset.filter(geo_latitude__gt=x1, geo_longitude__gt=y1, geo_latitude__lt=x2, geo_longitude__lt=y2)
