@@ -52,7 +52,9 @@ Heroku automatically recognizes it's uploading a django app _only_ if it finds t
   * requirements.txt: dependencies you specify for that heroku can automatically install them
   * setup.py: file that include sensitive credentials so that heroku can configure environmental variables
   * Procfile: file is used to explicitly declare your application’s process types and entry points. It is located in the root of your repository.
-
+ 
+### requirements.txt
+In here you specify your apps dependencies and their versions so that heroku knows what to install. To get packages version and place them in requirements.txt simply run _pip freeze_ and copy the packages you need inside requirements.txt file
 
 ## TODO
 
