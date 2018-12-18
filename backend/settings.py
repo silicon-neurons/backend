@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '.herokuapp.com',
-    'localhost'
+    'localhost',
+    'city-pin.herokuapp.com',
+    '127.0.0.1'
 ]
 
 
