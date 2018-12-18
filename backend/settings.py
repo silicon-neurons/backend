@@ -26,10 +26,7 @@ SECRET_KEY = 'pj4!)n=nq1-=2e@lchx6v#(_wae7!bcar*$9!ov^h@^u_e@#au'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'designrecognitionbackend.herokuapp.com',
-    'localhost',
-    '127.0.0.1',
-    'https://city-pin.herokuapp.com'
+    '*'
 ]
 
 
