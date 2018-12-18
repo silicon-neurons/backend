@@ -46,6 +46,14 @@ To run postgresql:
 pip install psycopg2-binary
 ```
 
+## Heroku Upload
+
+Heroku automatically recognizes it's uploading a django app _only_ if it finds the following files: 
+  * requirements.txt: dependencies you specify for that heroku can automatically install them
+  * setup.py: file that include sensitive credentials so that heroku can configure environmental variables
+  * Procfile: file is used to explicitly declare your application’s process types and entry points. It is located in the root of your repository.
+
+
 ## TODO
 
 As the project goes on, the README will be updated.
