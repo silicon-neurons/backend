@@ -152,4 +152,4 @@ MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'DesignRecognition.CustomUser'
 
-CORS_ORIGIN_WHITELIST = 'localhost:3000',
+CORS_ORIGIN_WHITELIST = 'localhost:3000', 'city-pin.herokuapp.com',
