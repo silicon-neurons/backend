@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'designrecognitionbackend.herokuapp.com',
     'localhost',
-    '127.0.0.1'
+    '127.0.0.1',
+    'city-pin.herokuapp.com'
 ]
 
 
