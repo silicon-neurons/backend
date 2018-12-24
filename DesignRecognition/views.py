@@ -5,6 +5,7 @@ from rest_framework.views import status
 from .serializers import PostSerializer, SimplePostSerializer, LensSerializer
 from .models import Post, Lens
 #TODO Add Correction
+#TODO Add Correction
 
 class PostListView(generics.ListAPIView):
     """
@@ -19,7 +20,7 @@ class LocationLimitedListView(generics.ListAPIView):
     """
     queryset = Post.objects.all()
     serializer_class = SimplePostSerializer
-
+    
     def get(self, request, *args, **kwargs):
         try:
             x1,y1,x2,y2 = float(kwargs["x1"]),float(kwargs["y1"]),float(kwargs["x2"]),float(kwargs["y2"])
@@ -37,7 +38,6 @@ class LocationLimitedListView(generics.ListAPIView):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-
 class PostCreateView(generics.CreateAPIView):
     """
     Provides a POST method for creating new posts.
@@ -52,7 +52,7 @@ class PostCreateView(generics.CreateAPIView):
             desc = request.data["desc"],
             design = request.data["design"],
             user = None, #! Change when auth is done
-            lens = Lens.objects.get(pk=request.data["lens"]),
+            lens = Lens.objects.get(title=request.data["lens"]),
             geo_latitude = request.data["geo_latitude"],
             geo_longitude = request.data["geo_longitude"]
         )

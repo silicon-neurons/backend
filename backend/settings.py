@@ -25,7 +25,15 @@ SECRET_KEY = 'pj4!)n=nq1-=2e@lchx6v#(_wae7!bcar*$9!ov^h@^u_e@#au'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '*.herokuapp.com',
+    'https://city-pin.herokuapp.com',
+    'city-pin.herokuapp.com',
+    '.herokuapp.com',
+    'herokuapp.com',
+    '127.0.0.1'
+]
 
 
 # Application definition
@@ -39,11 +47,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'DesignRecognition',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -75,13 +85,25 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+#           ONLINE DB
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'wezglngq',
+        'USER': 'wezglngq',
+        'PASSWORD': 'dePJm4x6ILs5nmBqmaQ7xPflWh2Ch50G',
+        'HOST': 'stampy.db.elephantsql.com',
+        'PORT': '5432',
     }
 }
 
+#       LOCAL HOST
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -129,3 +151,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'DesignRecognition.CustomUser'
+
+CORS_ORIGIN_WHITELIST = 'localhost:3000', 'city-pin.herokuapp.com',
